@@ -1,0 +1,103 @@
+logs/*
+*.ipr
+*.iws
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node #
+########
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+npm-debug.log
+node_modules
+
+# Scala #
+#########
+*.class
+*.log
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.scala_dependencies
+
+
+# Puppet & Vagrant #
+####################
+.tmp/
+modules/
+Gemfile.lock
+*.swp
+.vagrant
+puppet/
+
+# Generated files
+.lein-env
+.idea/
+.lein-failures
+.lein-plugins/
+.lein-repl-history
+.lein-deps-sum
+
+# Clojure
+test/user.clj
+boot2docker.vmdk
+pom.xml
+*.iml
+.nrepl-port
+resources/public
+
+docker/neo4j/dev-data
+lib/
+bin/
+.settings/
+.project
+.classpath
+logs/
+
+.tf
+
+aws/
