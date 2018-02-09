@@ -2,6 +2,8 @@
 
 Inspired by https://github.com/danielwhatmuff/robot-docker
 
+
+
 - pybot version
 
 - pabot version
@@ -9,6 +11,22 @@ Inspired by https://github.com/danielwhatmuff/robot-docker
 ## Usage
 
 TODO
+
+Mandatory environment variables:
+
+- ROBOT_TESTS
+- ROBOT_LOGS
+
+
+--variablefile -V
+
+-itags -i 
+
+-etags -e
+
+-test -t
+
+-suite -s
 
 ### Build image locally 
 
@@ -18,11 +36,11 @@ docker build -t yledockertest .
 ```
 
 ``
-docker run --rm -e ROBOT_TESTS=/tests/ -v $(pwd)/tests:/tests/ -ti yledockertest
+docker run --rm -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -v $(pwd)/tests:/tests/ -ti yledockertest
 ``
 
 ``
-docker run --rm -e ROBOT_MODE=pabot -e ROBOT_TESTS=/tests/ -v $(pwd)/tests:/tests/ -ti yledockertest
+docker run --rm -e ROBOT_MODE=pabot -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -e LOG_LEVEL=DEBUG -v $(pwd)/tests:/tests/ -ti yledockertest
 ``
 
 

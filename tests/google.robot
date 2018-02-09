@@ -13,5 +13,6 @@ Google opens
     Create WebDriver    Chrome  chrome_options=${chrome_opts}   service_args=${ARGS}
     Go To               ${SITEURL}
     Title Should Be     Google
+    Capture Page Screenshot     google.png
     [Teardown]          Close Browser
 
