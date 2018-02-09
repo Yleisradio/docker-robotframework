@@ -5,7 +5,7 @@ set -e
 # Set sensible defaults for env variables that can be overridden while running
 # the container
 DEFAULT_LOG_LEVEL="INFO"
-DEFAULT_RES="1280x1024x24"
+DEFAULT_RES="1680x1050x24"
 DEFAULT_DISPLAY=":99"
 DEFAULT_ROBOT="pybot"
 
