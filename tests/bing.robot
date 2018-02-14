@@ -2,6 +2,7 @@
 Documentation     Simple example using SeleniumLibrary.
 Library           SeleniumLibrary
 Library           ChromeConfiguration.py
+Default Tags      bing
 
 *** Variables ***
 ${SITEURL}      http://bing.com

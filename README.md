@@ -18,6 +18,12 @@ Run tests with pybot, passing only mandatory environment variables ROBOT_TESTS a
 docker run --rm -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -v $(pwd)/tests:/tests/ -ti yleisradio/docker-robotframework
 ``
 
+Use tags to select only certain tests
+
+``
+docker run --rm -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -e ROBOT_ITAG=google -v $(pwd)/tests:/tests/ -ti yleisradio/docker-robotframework
+``
+
 Run tests with pabot:
 
 ``
@@ -31,7 +37,9 @@ Mandatory environment variables:
 
 Optional environment variables:
 
-- ROBOT_VAR = variablefile used when running the test(s). ( passed as --variablefile to pybot )
+- ROBOT_MODE= pabot runs tests in parallel mode with pabot
+- PABOT_PROC= number of processes pabot should use
+- ROBOT_VAR = variablefile used when running the test(s). ( passed as --variablefile to pybot/pabot )
 - ROBOT_ITAG = tags to be included in the test run ( passed as -i to pybot )
 - ROBOT_ETAG = tags to be excluded from the test run ( passed as -e to pybot )
 - ROBOT_TEST = test to be run ( passed as -t to pybot )

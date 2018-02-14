@@ -34,6 +34,11 @@ fi
 # Process optional parameters passed to pybot/pabot
 OPTIONAL_PARAMETERS=""
 
+if [[ -n ${PABOT_PROC} ]]
+then
+    OPTIONAL_PARAMETERS+="--processes ${PABOT_PROC} "
+fi
+
 if [[ -n ${ROBOT_VAR} ]]
 then
     OPTIONAL_PARAMETERS+="--variablefile ${ROBOT_VAR} "
@@ -59,6 +64,7 @@ then
     OPTIONAL_PARAMETERS+="-s ${ROBOT_SUITE} "
 fi
 
+
 # Start Xvfb
 echo -e "Starting Xvfb on display ${DISPLAY} with res ${RES}"
 Xvfb ${DISPLAY} -ac -screen 0 ${RES} +extension RANDR &
@@ -71,9 +77,8 @@ then
   pybot --loglevel ${LOG_LEVEL} ${OPTIONAL_PARAMETERS}--outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 else
   echo -e "Executing robot tests at log level ${LOG_LEVEL}, parameters ${OPTIONAL_PARAMETERS}with pabot"
-  pabot --loglevel ${LOG_LEVEL} ${OPTIONAL_PARAMETERS}--outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
+  pabot ${OPTIONAL_PARAMETERS}--loglevel ${LOG_LEVEL} --outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 fi
-
 
 
 # Stop Xvfb

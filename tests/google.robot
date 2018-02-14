@@ -2,6 +2,7 @@
 Documentation     Simple example using SeleniumLibrary.
 Library           SeleniumLibrary
 Library           ChromeConfiguration.py
+Default Tags      google
 
 *** Variables ***
 ${SITEURL}      http://google.com
