@@ -1,8 +1,7 @@
 pip
 robotframework==3.0.2
-robotframework-seleniumlibrary==3.0.0
+robotframework-seleniumlibrary==3.1.0
 robotframework-httplibrary==0.4.2
 pyvirtualdisplay==0.2
 robotframework-pabot==0.43
-robotframework-selenium2library==3.0.0
 robotframework-pageobjectlibrary==1.0.0b2
