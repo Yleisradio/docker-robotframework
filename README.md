@@ -24,10 +24,14 @@ Use tags to select only certain tests
 docker run --rm -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -e ROBOT_ITAG=google -v $(pwd)/tests:/tests/ -ti yleisradio/docker-robotframework
 ``
 
-Run tests with pabot:
+Run tests with pabot (2 processes without locks and 15 processes with locks):
 
 ``
 docker run --rm -e ROBOT_MODE=pabot -e ROBOT_TESTS=/tests/ -e ROBOT_LOGS=/tests/logs/ -e LOG_LEVEL=DEBUG -v $(pwd)/tests:/tests/ -ti yleisradio/docker-robotframework
+``
+
+``
+docker run --rm -e ROBOT_MODE=pabot -e PABOT_LIB=pabotlib -e PABOT_RES=/tests/conf/list_for_pabot.dat -e ROBOT_TESTS=/tests/tests -e ROBOT_LOGS=/tests/logs/ -e PABOT_PROC=15 --shm-size 6g -v $(pwd):/tests -ti yleisradio/docker-robotframework
 ``
 
 Mandatory environment variables:
@@ -38,6 +42,8 @@ Mandatory environment variables:
 Optional environment variables:
 
 - ROBOT_MODE= pabot runs tests in parallel mode with pabot
+- PABOT_LIB= indicates that pabot library is used
+- PABOT_RES= resource file which contain value sets needed with locks
 - PABOT_PROC= number of processes pabot should use
 - ROBOT_VAR = variablefile used when running the test(s). ( passed as --variablefile to pybot/pabot )
 - ROBOT_ITAG = tags to be included in the test run ( passed as -i to pybot )
@@ -45,6 +51,8 @@ Optional environment variables:
 - ROBOT_TEST = test to be run ( passed as -t to pybot )
 - ROBOT_SUITE = suite to be run ( passed as -s to pybot )
 - RES = resolution used in Xvfb when using browser tests
+
+Note that PABOT_LIB and PABOT_RES must be right after the ROBOT_MODE (otherwise the value set file is not found)
 
 ### Build image locally 
 

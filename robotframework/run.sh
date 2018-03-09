@@ -34,6 +34,16 @@ fi
 # Process optional parameters passed to pybot/pabot
 OPTIONAL_PARAMETERS=""
 
+if [[ -n ${PABOT_LIB} ]]
+then
+    OPTIONAL_PARAMETERS+="--${PABOT_LIB} "
+fi
+
+if [[ -n ${PABOT_RES} ]]
+then
+    OPTIONAL_PARAMETERS+="--resourcefile ${PABOT_RES} "
+fi
+
 if [[ -n ${PABOT_PROC} ]]
 then
     OPTIONAL_PARAMETERS+="--processes ${PABOT_PROC} "
@@ -76,7 +86,8 @@ then
   echo -e "Executing robot tests at log level ${LOG_LEVEL}, parameters ${OPTIONAL_PARAMETERS}with pybot"
   pybot --loglevel ${LOG_LEVEL} ${OPTIONAL_PARAMETERS}--outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 else
-  echo -e "Executing robot tests at log level ${LOG_LEVEL}, parameters ${OPTIONAL_PARAMETERS}with pabot"
+  echo -e "Executing robot tests at log level ${LOG_LEVEL}, pabotlib_4 and parameters ${OPTIONAL_PARAMETERS}with pabot"
+  echo -e "command: pabot ${OPTIONAL_PARAMETERS}--loglevel ${LOG_LEVEL} --outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}"
   pabot ${OPTIONAL_PARAMETERS}--loglevel ${LOG_LEVEL} --outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 fi
 
