@@ -5,3 +5,4 @@ robotframework-httplibrary==0.4.2
 pyvirtualdisplay==0.2
 robotframework-pabot==0.43
 robotframework-pageobjectlibrary==1.0.0b2
+retry
