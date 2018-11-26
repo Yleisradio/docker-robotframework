@@ -74,11 +74,13 @@ then
     OPTIONAL_PARAMETERS+="-s ${ROBOT_SUITE} "
 fi
 
-
 # Start Xvfb
 echo -e "Starting Xvfb on display ${DISPLAY} with res ${RES}"
 Xvfb ${DISPLAY} -ac -screen 0 ${RES} +extension RANDR &
 export DISPLAY=${DISPLAY}
+
+#export ROBOT_SYSLOG_FILE=${ROBOT_LOGS}/syslog.txt
+#export ROBOT_SYSLOG_LEVEL=DEBUG
 
 # Execute tests
 if [ "${ROBOT_MODE}" != "pabot" ]
@@ -86,11 +88,10 @@ then
   echo -e "Executing robot tests at log level ${LOG_LEVEL}, parameters ${OPTIONAL_PARAMETERS}with pybot"
   pybot --loglevel ${LOG_LEVEL} ${OPTIONAL_PARAMETERS}--outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 else
-  echo -e "Executing robot tests at log level ${LOG_LEVEL}, pabotlib_4 and parameters ${OPTIONAL_PARAMETERS}with pabot"
+  echo -e "Executing robot tests at log level ${LOG_LEVEL}, pabotlib and parameters ${OPTIONAL_PARAMETERS} with pabot"
   echo -e "command: pabot ${OPTIONAL_PARAMETERS}--loglevel ${LOG_LEVEL} --outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}"
   pabot ${OPTIONAL_PARAMETERS}--loglevel ${LOG_LEVEL} --outputdir ${ROBOT_LOGS} ${ROBOT_TESTS}
 fi
-
 
 # Stop Xvfb
 kill -9 $(pgrep Xvfb)
