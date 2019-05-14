@@ -3,5 +3,4 @@ robotframework==3.1.1
 robotframework-seleniumlibrary==3.3.1
 pyvirtualdisplay==0.2
 robotframework-pabot==0.56
-robotframework-httpctrl==0.1.0
 retry

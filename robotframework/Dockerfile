@@ -22,7 +22,7 @@ RUN apt-get -yqq  update \
     && apt-get install -y build-essential python3.6 python3.6-dev python3-pip python3.6-venv \
     && python3.6 -m pip install pip --upgrade \
     && pip install --upgrade urllib3 \
-    #&& pip install requests \
+    && pip install requests \
     && apt-get upgrade -yqq \
     && apt-get install -y \
 
