@@ -13,6 +13,9 @@ LABEL usage=" "
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Create user
+RUN useradd automation --shell /bin/bash --create-home
+
 RUN apt-get -yqq  update \
     && apt-get install -y software-properties-common \
 
