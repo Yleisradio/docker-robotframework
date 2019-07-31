@@ -64,7 +64,7 @@ docker build -t docker-robotframework .
 ```
 
 ## Publishing image
-Dockerhub eventually builds and publishes an new image after every commit to master branch. 
+Dockerhub eventually builds and publishes a new image after every commit to master branch. 
 This is implemented using githooks.
 
 ## Contributing
