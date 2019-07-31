@@ -63,6 +63,10 @@ cd robotframework
 docker build -t docker-robotframework .
 ```
 
+## Publishing image
+Dockerhub eventually builds and publishes an new image after every commit to master branch. 
+This is implemented using githooks.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/Yleisradio/docker-robotframework. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
