@@ -13,6 +13,9 @@ LABEL usage=" "
 
 ENV DEBIAN_FRONTEND noninteractive
 
+# Create user
+RUN useradd automation --shell /bin/bash --create-home
+
 RUN apt-get -yqq  update \
     && apt-get install -y software-properties-common \
 
@@ -74,7 +77,17 @@ RUN apt-get -yqq  update \
 
 # Fix hanging Chrome, see https://github.com/SeleniumHQ/docker-selenium/issues/87
 ENV DBUS_SESSION_BUS_ADDRESS /dev/null
-ENV DISPLAY=:99
+
+# Configure monitor
+ENV DISPLAY :20.0
+ENV SCREEN_GEOMETRY "1440x900x24"
+# Configure chromedriver
+ENV CHROMEDRIVER_PORT 4444
+ENV CHROMEDRIVER_WHITELISTED_IPS "127.0.0.1"
+ENV CHROMEDRIVER_URL_BASE ''
+ENV CHROMEDRIVER_EXTRA_ARGS ''
+
+EXPOSE 4444
 
 #Set python 3.6 to default python version and io-encoding
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1 \
