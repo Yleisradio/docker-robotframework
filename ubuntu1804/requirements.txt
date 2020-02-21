@@ -1,0 +1,14 @@
+#pip3
+selenium
+requests
+robotframework==3.1.2
+robotframework-seleniumlibrary==4.1.0
+pyvirtualdisplay==0.2
+robotframework-pabot==1.0.0
+beautifulsoup4==4.4.1
+numpy
+plotly
+chart-studio
+retry
+awscli
+boto3
